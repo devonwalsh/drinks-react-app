@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Card, Button } from 'semantic-ui-react';
+import { Card, Button } from 'semantic-ui-react';
 
 const FeaturedDrink = props => {
 
