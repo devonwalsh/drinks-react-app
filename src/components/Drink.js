@@ -1,6 +1,5 @@
 import React from 'react';
-import { Card } from 'semantic-ui-react';
-import '../styles/Drink.css';
+import { Card, Button } from 'semantic-ui-react';
 
 const Drink = props => {
 
@@ -14,6 +13,10 @@ const Drink = props => {
                 }}/>
             <Card.Content>
                     {props.drinkData.strDrink}
+            </Card.Content>
+            <Card.Content>
+            <Button floated="left">View Details</Button>
+            <Button floated="right">Save</Button>
             </Card.Content>
         </Card>
     )

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
 import SearchBar from '../components/SearchBar';
 import SearchResults from './SearchResults';
-import '../styles/DrinkSearch.css';
 
 class DrinkSearch extends Component {
 

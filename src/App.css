@@ -43,6 +43,6 @@
   float: center;
 }
 
-.Navigation.ui.container {
-  width: 80%;
+.search-input.ui.input {
+  margin-right: 5px;
 }

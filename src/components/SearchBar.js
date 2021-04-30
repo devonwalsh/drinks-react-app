@@ -10,6 +10,7 @@ class SearchBar extends Component {
         return(
             <div>
             <Input 
+                className="search-input"
                 placeholder='Search for a drink' 
                 value={this.state.searchTerm}
                 onChange={e => this.setState({...this.state, searchTerm: e.target.value})}
