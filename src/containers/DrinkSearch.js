@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
 import SearchBar from '../components/SearchBar';
 import DrinkList from './DrinkList';
+import '../styles/DrinkSearch.css';
 
 class DrinkSearch extends Component {
 
@@ -23,7 +24,7 @@ class DrinkSearch extends Component {
 
     render() {
         return(
-            <Container>
+            <Container className="drink-search">
                 <SearchBar />
                 <h2>Search Results</h2>
                 <DrinkList drinks={this.state.drinkResults} />

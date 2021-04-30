@@ -41,3 +41,8 @@
   width: 80%;
   text-align: left;
 }
+
+.drink-search.ui.container {
+  width: 60%;
+  text-align: left;
+}
