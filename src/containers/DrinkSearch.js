@@ -1,26 +1,28 @@
 import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
 import SearchBar from '../components/SearchBar';
-import DrinkList from './DrinkList';
+import SearchResults from './SearchResults';
 import '../styles/DrinkSearch.css';
 
 class DrinkSearch extends Component {
 
     state = {
-        query: '',
         drinkResults: []
     }
 
     sortAndSetState = data => {
-        let sortedDrinks = data.sort(
-            (a, b) => {
-                if (a.strDrink > b.strDrink) { return 1 }
-                else if (a.strDrink < b.strDrink) { return -1 }
-                else { return 0 }
-            }
-        )
-
-        this.setState({...this.state, drinkResults: sortedDrinks})
+        if (data !== null) {
+                let sortedDrinks = data.sort(
+                    (a, b) => {
+                        if (a.strDrink > b.strDrink) { return 1 }
+                        else if (a.strDrink < b.strDrink) { return -1 }
+                        else { return 0 }
+                    }
+                )
+    
+                this.setState({...this.state, drinkResults: sortedDrinks})
+        }
+        else this.setState({...this.state, drinkResults: null})
     }
 
     searchDrinks = query => {
@@ -32,16 +34,12 @@ class DrinkSearch extends Component {
 
     }
 
-    componentDidMount() {
-        this.searchDrinks('coffee')
-    }
-
     render() {
         return(
             <Container className="drink-search">
-                <SearchBar />
+                <SearchBar searchDrinks={this.searchDrinks} />
                 <h2>Search Results</h2>
-                <DrinkList drinks={this.state.drinkResults} />
+                <SearchResults drinks={this.state.drinkResults} />
             </Container>
         )
     }
