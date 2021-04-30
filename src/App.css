@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+.App.ui.container {
+  width: 80%;
+  text-align: left;
+}
