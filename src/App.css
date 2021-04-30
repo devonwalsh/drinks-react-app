@@ -38,9 +38,15 @@
 }
 
 .App.ui.container {
-  width: 80%;
   text-align: left;
-  float: center;
+}
+
+.Navigation.ui.menu {
+  margin-bottom: 30px;
+}
+
+.featured-drink.ui.container {
+  width: 50%;
 }
 
 .search-input.ui.input {

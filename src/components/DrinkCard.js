@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Button } from 'semantic-ui-react';
 
-const Drink = props => {
+const DrinkCard = props => {
 
     return(
         <Card className="drink-card">
@@ -9,17 +9,18 @@ const Drink = props => {
                 style={{
                     height:"200px",
                     backgroundImage: `url(${props.drinkData.strDrinkThumb})`,
-                    backgroundSize: "cover"
+                    backgroundSize: "cover",
+                    backgroundPosition: "center"
                 }}/>
             <Card.Content>
                     {props.drinkData.strDrink}
             </Card.Content>
             <Card.Content>
-            <Button floated="left">View Details</Button>
-            <Button floated="right">Save</Button>
+            <Button floated="left" color="green" basic>View Details</Button>
+            <Button floated="right" color="green">Save</Button>
             </Card.Content>
         </Card>
     )
 }
 
-export default Drink;
+export default DrinkCard;

@@ -25,11 +25,18 @@ class Navigation extends Component {
                     Home
                 </Menu.Item>
                 <Menu.Item 
-                    as={NavLink} exact to="/drink-search"
-                    name='drink-search' 
-                    active={activeItem === 'drink-search'}
+                    as={NavLink} exact to="/browse"
+                    name='browse' 
+                    active={activeItem === 'browse'}
                     onClick={this.handleClick}>
-                    Search Drinks
+                    Browse
+                </Menu.Item>
+                <Menu.Item 
+                    as={NavLink} exact to="/search"
+                    name='search' 
+                    active={activeItem === 'search'}
+                    onClick={this.handleClick}>
+                    Search
                 </Menu.Item>
                 <Menu.Item 
                     as={NavLink} exact to="/my-drinks"

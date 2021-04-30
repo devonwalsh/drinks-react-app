@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
-import SearchBar from '../components/SearchBar';
-import SearchResults from './SearchResults';
 
-class DrinkSearch extends Component {
+class BrowsePage extends Component {
 
     state = {
         drinkResults: []
@@ -24,24 +22,20 @@ class DrinkSearch extends Component {
         else this.setState({...this.state, drinkResults: null})
     }
 
-    searchDrinks = query => {
-
-        fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${query}`)
+    browseDrinks = category => {
+        fetch(`www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`)
         .then(res => res.json())
         .then(data => this.sortAndSetState(data.drinks))
         .catch(error => console.log(error))
-
     }
 
     render() {
         return(
-            <Container className="drink-search">
-                <SearchBar searchDrinks={this.searchDrinks} />
-                <h2>Search Results</h2>
-                <SearchResults drinks={this.state.drinkResults} />
+            <Container className="drink-browse">
+                <h3>We browsin</h3>
             </Container>
         )
     }
 }
 
-export default DrinkSearch;
+export default BrowsePage;

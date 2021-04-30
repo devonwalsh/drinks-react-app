@@ -1,12 +1,12 @@
 import React from 'react';
 import { Card } from 'semantic-ui-react';
-import Drink from '../components/Drink';
+import DrinkCard from '../components/DrinkCard';
 
 const DrinkList = props => {
     return (
         <Card.Group itemsPerRow={4}>
         {props.drinks.map((drink, idx) => 
-            <Drink 
+            <DrinkCard 
                 key={idx} 
                 drinkData={drink} 
                 fluid
