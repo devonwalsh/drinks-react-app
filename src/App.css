@@ -40,9 +40,9 @@
 .App.ui.container {
   width: 80%;
   text-align: left;
+  float: center;
 }
 
-.drink-search.ui.container {
-  width: 60%;
-  text-align: left;
+.Navigation.ui.container {
+  width: 80%;
 }

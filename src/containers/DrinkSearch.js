@@ -11,11 +11,25 @@ class DrinkSearch extends Component {
         drinkResults: []
     }
 
+    sortAndSetState = data => {
+        let sortedDrinks = data.sort(
+            (a, b) => {
+                if (a.strDrink > b.strDrink) { return 1 }
+                else if (a.strDrink < b.strDrink) { return -1 }
+                else { return 0 }
+            }
+        )
+
+        this.setState({...this.state, drinkResults: sortedDrinks})
+    }
+
     searchDrinks = query => {
+
         fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${query}`)
         .then(res => res.json())
-        .then(data => this.setState({drinkResults: data.drinks}))
+        .then(data => this.sortAndSetState(data.drinks))
         .catch(error => console.log(error))
+
     }
 
     componentDidMount() {
