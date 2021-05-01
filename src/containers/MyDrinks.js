@@ -11,7 +11,7 @@ class MyDrinks extends Component {
     fetchDrinks = () => {
         fetch(`http://localhost:4000/drinks`)
         .then(res => res.json())
-        .then(data => this.setState({savedDrinks: data}))
+        .then(data => this.saveDrinksToState(data))
         .catch(error => console.log(error))
     }
 

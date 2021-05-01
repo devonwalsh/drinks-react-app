@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import FeaturedDrink from '../components/FeaturedDrink';
-import { Container } from 'semantic-ui-react';
+import DrinkCard from '../components/DrinkCard';
+import { Container, Card } from 'semantic-ui-react';
 
 class Home extends Component {
 
@@ -23,7 +23,9 @@ class Home extends Component {
         return(
             <Container className="featured-drink">
                 <h2>Featured Drink</h2>
-                <FeaturedDrink drinkData={this.state.drink} />
+                <Card.Group className="featured-drink" itemsPerRow={1}>
+                    <DrinkCard className="featured" drinkData={this.state.drink} />
+                </Card.Group>
             </Container>
         )
     }

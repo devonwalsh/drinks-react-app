@@ -1,10 +1,22 @@
 {
-    "drinks": [
-        {
-            "id": 1,
-            "strDrink": "3-Mile Long Island Iced Tea",
-            "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/rrtssw1472668972.jpg",
-            "idDrink": "15300"
-         }
-    ]
+  "drinks": [
+    {
+      "idDrink": "14029",
+      "strDrink": "57 Chevy with a White License Plate",
+      "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/qyyvtu1468878544.jpg",
+      "id": 1
+    },
+    {
+      "idDrink": "13936",
+      "strDrink": "Miami Vice",
+      "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/qvuyqw1441208955.jpg",
+      "id": 2
+    },
+    {
+      "idDrink": "11118",
+      "strDrink": "Blue Margarita",
+      "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/bry4qh1582751040.jpg",
+      "id": 3
+    }
+  ]
 }

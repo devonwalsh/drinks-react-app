@@ -6,7 +6,7 @@ const DrinkList = props => {
     return (
         <Card.Group itemsPerRow={4}>
         {props.drinks.map((drink, idx) => 
-            <DrinkCard 
+            <DrinkCard className="drink-card"
                 key={idx} 
                 drinkData={drink} 
                 fluid
