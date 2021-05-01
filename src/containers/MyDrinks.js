@@ -37,6 +37,7 @@ class MyDrinks extends Component {
     render() {
         return(
             <Container>
+                <h2>My Saved Drinks</h2>
                 <DrinkList drinks={this.state.savedDrinks}/>
             </Container>
         )
