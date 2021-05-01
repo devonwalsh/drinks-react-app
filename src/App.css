@@ -52,3 +52,7 @@
 .search-input.ui.input {
   margin-right: 5px;
 }
+
+.dropdown-menu {
+  margin-bottom: 20px;
+}

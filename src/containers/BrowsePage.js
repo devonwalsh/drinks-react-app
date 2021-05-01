@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
 import DropdownMenu from '../components/DropdownMenu';
+import DrinkList from './DrinkList';
 
 class BrowsePage extends Component {
 
@@ -11,10 +12,13 @@ class BrowsePage extends Component {
     }
 
     fetchDrinks = category => {
-        fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${selectedCategory}`)
+        fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`)
         .then(res => res.json())
         .then(data => this.saveDrinksToState(data.drinks))
         .catch(error => console.log(error))
+
+        this.selectCategory(category)
+        console.log("fetched")
     }
 
     fetchCategories = () => {
@@ -55,6 +59,10 @@ class BrowsePage extends Component {
         this.setState({categories: sortedCategories})
     }
 
+    selectCategory = category => {
+        this.setState({...this.state, selectedCategory: category})
+    }
+
     componentDidMount() {
         this.fetchCategories();
     }
@@ -62,8 +70,12 @@ class BrowsePage extends Component {
     render() {
         return(
             <Container className="drink-browse">
-                <DropdownMenu categories={this.state.categories}/>
-                <h3>We browsin</h3>
+                <DropdownMenu 
+                    categories={this.state.categories} 
+                    selectedCategory={this.state.selectedCategory}
+                    fetchDrinks={this.fetchDrinks}
+                />
+                <DrinkList drinks={this.state.drinkResults}/>
             </Container>
         )
     }
