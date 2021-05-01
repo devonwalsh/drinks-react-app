@@ -4,6 +4,7 @@ import Navigation from './components/Navigation';
 import Home from './containers/Home';
 import BrowsePage from './containers/BrowsePage';
 import SearchPage from './containers/SearchPage';
+import MyDrinks from './containers/MyDrinks';
 import { Container } from 'semantic-ui-react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -18,6 +19,7 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/browse" component={BrowsePage} />
             <Route exact path="/search" component={SearchPage} />
+            <Route exact path="/my-drinks" component={MyDrinks} />
           </Switch>
         </Container>
       </Router>

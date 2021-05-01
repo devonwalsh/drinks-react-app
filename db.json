@@ -1,3 +1,10 @@
 {
-    "drinks": []
+    "drinks": [
+        {
+            "id": 1,
+            "strDrink": "3-Mile Long Island Iced Tea",
+            "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/rrtssw1472668972.jpg",
+            "idDrink": "15300"
+         }
+    ]
 }

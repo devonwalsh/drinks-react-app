@@ -18,7 +18,6 @@ class BrowsePage extends Component {
         .catch(error => console.log(error))
 
         this.selectCategory(category)
-        console.log("fetched")
     }
 
     fetchCategories = () => {

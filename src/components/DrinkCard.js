@@ -17,7 +17,7 @@ const DrinkCard = props => {
             </Card.Content>
             <Card.Content>
             <Button floated="left" color="green" basic>View Details</Button>
-            <Button floated="right" color="green">Save</Button>
+            <Button floated="right" color="green" onClick={() => console.log(props.drinkData)}>Save</Button>
             </Card.Content>
         </Card>
     )
