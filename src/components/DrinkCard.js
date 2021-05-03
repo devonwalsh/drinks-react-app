@@ -7,46 +7,27 @@ class DrinkCard extends Component {
         drinkSaved: false 
     }
 
-    saveDrink = drink => {
-        fetch(`http://localhost:3000/drinks`, {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(drink)
-        })
-        .then(res => res.json())
-        .catch(error => console.log(error))
-    }
-
-    deleteDrink = drink => {
-        fetch(`http://localhost:3000/drinks/${drink.id}`, {
-            method: "DELETE"
-        })
-        .then(res => res.json())
-        .catch(error => console.log(error))
-    }
-
     saveButtonHandler = (array, drink) => {
-        let drinkFound = array.find(item => item.idDrink === drink.idDrink)
-        if (drinkFound) {this.setState({drinkSaved: true})}
-    }
-
-    savedStateChecker = drink => {
-        fetch(`http://localhost:3000/drinks`)
-        .then(res => res.json())
-        .then(data => this.saveButtonHandler(data, drink))
-        .catch(error => console.log(error))
+        let drinkFound = array.find(
+            item => item.idDrink === drink.idDrink
+        )
+        if (drinkFound) {
+            this.setState({drinkSaved: true})
+        }
+        else {
+            this.setState({drinkSaved: false})
+        }
     }
 
     componentDidMount() {
-        this.savedStateChecker(this.props.drinkData)
+        this.saveButtonHandler(this.props.savedDrinks, this.props.drinkData)
     }
 
     render() {
         return(
             <Card>
-                <Card.Content className={this.props.className}
+                <Card.Content 
+                    className={this.props.className}
                     style={{
                         backgroundImage: `url(${this.props.drinkData.strDrinkThumb})`,
                         backgroundSize: "cover",
@@ -67,10 +48,10 @@ class DrinkCard extends Component {
                     color={this.state.drinkSaved ? "red" : "green"}
                     onClick={() => {
                         if (this.state.drinkSaved) {
-                            this.deleteDrink(this.props.drinkData)
+                            this.props.deleteDrink(this.props.drinkData)
                         }
                         else {
-                            this.saveDrink({
+                            this.props.saveNewDrink({
                             idDrink: this.props.drinkData.idDrink,
                             strDrink: this.props.drinkData.strDrink,
                             strDrinkThumb: this.props.drinkData.strDrinkThumb

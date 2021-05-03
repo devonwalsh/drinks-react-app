@@ -1,19 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Card } from 'semantic-ui-react';
 import DrinkCard from '../components/DrinkCard';
 
-const DrinkList = props => {
-    return (
-        <Card.Group itemsPerRow={4}>
-        {props.drinks.map((drink, idx) => 
-            <DrinkCard className="drink-card"
-                key={idx} 
-                drinkData={drink} 
-                fluid
-            />
-        )}
-        </Card.Group>
-    )
+class DrinkList extends Component {
+    render() {
+        return (
+            <Card.Group itemsPerRow={this.props.itemsPerRow}>
+            {this.props.drinks.map((drink, idx) => 
+                <DrinkCard 
+                    className={this.props.className}
+                    key={idx} 
+                    drinkData={drink}
+                    savedDrinks={this.props.savedDrinks}
+                    saveNewDrink={this.props.saveNewDrink}
+                    deleteDrink={this.props.deleteDrink}
+                    fluid
+                />
+            )}
+            </Card.Group>
+        )
+    }
 }
 
 export default DrinkList;

@@ -34,9 +34,16 @@ class SearchPage extends Component {
     render() {
         return(
             <Container className="drink-search">
-                <SearchBar searchDrinks={this.searchDrinks} />
+                <SearchBar 
+                    searchDrinks={this.searchDrinks} 
+                />
                 <h2>Search Results</h2>
-                <SearchResults drinks={this.state.drinkResults} />
+                <SearchResults 
+                    drinks={this.state.drinkResults} 
+                    savedDrinks={this.props.savedDrinks}
+                    saveNewDrink={this.props.saveNewDrink}
+                    deleteDrink={this.props.deleteDrink}
+                />
             </Container>
         )
     }

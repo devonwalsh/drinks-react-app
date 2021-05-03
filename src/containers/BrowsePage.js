@@ -11,35 +11,11 @@ class BrowsePage extends Component {
         drinkResults: []
     }
 
-    fetchDrinks = category => {
-        fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`)
-        .then(res => res.json())
-        .then(data => this.saveDrinksToState(data.drinks))
-        .catch(error => console.log(error))
-
-        this.selectCategory(category)
-    }
-
     fetchCategories = () => {
         fetch(`https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list`)
         .then(res => res.json())
         .then(data => this.saveCategoriesToState(data.drinks))
         .catch(error => console.log(error))
-    }
-
-    saveDrinksToState = data => {
-        if (data !== null) {
-                let sortedDrinks = data.sort(
-                    (a, b) => {
-                        if (a.strDrink > b.strDrink) { return 1 }
-                        else if (a.strDrink < b.strDrink) { return -1 }
-                        else { return 0 }
-                    }
-                )
-    
-                this.setState({...this.state, drinkResults: sortedDrinks})
-        }
-        else this.setState({...this.state, drinkResults: null})
     }
 
     saveCategoriesToState = data => {
@@ -62,6 +38,30 @@ class BrowsePage extends Component {
         this.setState({...this.state, selectedCategory: category})
     }
 
+    fetchDrinks = category => {
+        fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`)
+        .then(res => res.json())
+        .then(data => this.saveDrinksToState(data.drinks))
+        .catch(error => console.log(error))
+
+        this.selectCategory(category)
+    }
+
+    saveDrinksToState = data => {
+        if (data !== null) {
+                let sortedDrinks = data.sort(
+                    (a, b) => {
+                        if (a.strDrink > b.strDrink) { return 1 }
+                        else if (a.strDrink < b.strDrink) { return -1 }
+                        else { return 0 }
+                    }
+                )
+    
+                this.setState({...this.state, drinkResults: sortedDrinks})
+        }
+        else this.setState({...this.state, drinkResults: null})
+    }
+
     componentDidMount() {
         this.fetchCategories();
     }
@@ -74,7 +74,14 @@ class BrowsePage extends Component {
                     selectedCategory={this.state.selectedCategory}
                     fetchDrinks={this.fetchDrinks}
                 />
-                <DrinkList drinks={this.state.drinkResults}/>
+                <DrinkList 
+                    drinks={this.state.drinkResults}
+                    savedDrinks={this.props.savedDrinks}
+                    saveNewDrink={this.props.saveNewDrink}
+                    deleteDrink={this.props.deleteDrink}
+                    itemsPerRow={4}
+                    className="drink-card"
+                />
             </Container>
         )
     }

@@ -10,7 +10,14 @@ const SearchResults = props => {
     }
     else {
         return (
-            <DrinkList drinks={props.drinks} />
+            <DrinkList 
+                drinks={props.drinks} 
+                savedDrinks={props.savedDrinks}
+                saveNewDrink={props.saveNewDrink}
+                deleteDrink={props.deleteDrink}
+                itemsPerRow={4}
+                className="drink-card"
+            />
         )
     }
 }

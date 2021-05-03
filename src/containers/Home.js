@@ -1,31 +1,37 @@
 import React, { Component } from 'react';
-import DrinkCard from '../components/DrinkCard';
-import { Container, Card } from 'semantic-ui-react';
+import DrinkList from './DrinkList';
+import { Container} from 'semantic-ui-react';
 
 class Home extends Component {
 
     state = {
-        drink: ''
+        featuredDrink: ''
     }
 
-    getDrink = () => {
+    getRandomDrink = () => {
         fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
         .then(res => res.json())
-        .then(data => this.setState({drink: data.drinks[0]}))
+        .then(data => this.setState({featuredDrink: data.drinks}))
         .catch(error => console.log(error))
     }
 
     componentDidMount() {
-        this.getDrink();
+        this.getRandomDrink();
     }
 
     render() {
         return(
             <Container className="featured-drink">
                 <h2>Featured Drink</h2>
-                <Card.Group className="featured-drink" itemsPerRow={1}>
-                    <DrinkCard className="featured" drinkData={this.state.drink} />
-                </Card.Group>
+                <DrinkList 
+                    drinks={Array.from(this.state.featuredDrink)}
+                    savedDrinks={this.props.savedDrinks}
+                    saveNewDrink={this.props.saveNewDrink}
+                    deleteDrink={this.props.deleteDrink}
+                    itemsPerRow={1}
+                    className="featured"
+                />
+
             </Container>
         )
     }
