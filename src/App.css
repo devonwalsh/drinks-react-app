@@ -45,12 +45,12 @@
   margin-bottom: 30px;
 }
 
-.featured {
-  height: 400px;
-}
-
 .featured-drink.ui.container {
   width: 60%;
+}
+
+.featured {
+  height: 400px;
 }
 
 .drink-card {
