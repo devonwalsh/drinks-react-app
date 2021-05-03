@@ -64,6 +64,7 @@ class BrowsePage extends Component {
 
     componentDidMount() {
         this.fetchCategories();
+        console.log("browse mounted")
     }
 
     render() {

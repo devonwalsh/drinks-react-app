@@ -3,6 +3,15 @@ import { Card } from 'semantic-ui-react';
 import DrinkCard from '../components/DrinkCard';
 
 class DrinkList extends Component {
+
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.props === nextProps) {
+          return false;
+        } else {
+          return true;
+        }
+    }
+
     render() {
         return (
             <Card.Group itemsPerRow={this.props.itemsPerRow}>

@@ -21,9 +21,9 @@ class App extends Component {
       .catch(error => console.log(error))
   }
 
-  addNewDrinkToState = drink => {
-    this.setState({...this.state, savedDrinks: [...this.state.savedDrinks, drink]})
-    this.sortSavedDrinks(this.state.savedDrinks)
+  addNewDrinkToState = () => {
+    this.setState({...this.state, testItem: "test"})
+    //this.sortSavedDrinks(this.state.savedDrinks)
   }
 
   sortSavedDrinks = data => {
@@ -50,15 +50,29 @@ class App extends Component {
         body: JSON.stringify(drink)
     })
     .then(res => res.json())
-    .then(data => this.addNewDrinkToState(data))
+    .then(data => this.addNewDrinkToState(data.drinks))
     .catch(error => console.log(error))
   }
 
-  deleteDrink = drink => {
+  removeDrinkFromState = drink => {
+    let updatedState = this.state.savedDrinks.filter(
+      item => item.idDrink !== drink.idDrink
+    )
+
+    this.setState({...this.state, savedDrinks: updatedState})
+  }
+
+  deleteDrink = deleteDrink => {
+
+    let drink = this.state.savedDrinks.find(drink => 
+      drink.idDrink === deleteDrink.idDrink
+    )
+
     fetch(`http://localhost:3000/drinks/${drink.id}`, {
         method: "DELETE"
     })
     .then(res => res.json())
+    .then(console.log(deleteDrink))
     .catch(error => console.log(error))
   }
 
