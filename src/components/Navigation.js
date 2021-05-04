@@ -10,37 +10,37 @@ class Navigation extends Component {
 
     handleClick = (e, { name }) => {
         this.setState({ activeItem: name })
-      }
+    }
 
     render() {
         const { activeItem } = this.state
-        
-        return(
+
+        return (
             <Menu className="Navigation">
-                <Menu.Item 
+                <Menu.Item
                     as={NavLink} exact to="/"
-                    name='homepage' 
+                    name='homepage'
                     active={activeItem === 'homepage'}
                     onClick={this.handleClick}>
                     Home
                 </Menu.Item>
-                <Menu.Item 
+                <Menu.Item
                     as={NavLink} exact to="/browse"
-                    name='browse' 
+                    name='browse'
                     active={activeItem === 'browse'}
                     onClick={this.handleClick}>
                     Browse
                 </Menu.Item>
-                <Menu.Item 
+                <Menu.Item
                     as={NavLink} exact to="/search"
-                    name='search' 
+                    name='search'
                     active={activeItem === 'search'}
                     onClick={this.handleClick}>
                     Search
                 </Menu.Item>
-                <Menu.Item 
+                <Menu.Item
                     as={NavLink} exact to="/my-drinks"
-                    name='my-drinks' 
+                    name='my-drinks'
                     active={activeItem === 'my-drinks'}
                     onClick={this.handleClick}>
                     My Drinks

@@ -20,7 +20,6 @@ class DrinkList extends Component {
             this.setState({...this.state, savedDrinks: data})
         }
         else this.setState({...this.state, savedDrinks: null})
-
     }
     
     saveNewDrink = drink => {
@@ -41,12 +40,11 @@ class DrinkList extends Component {
     }
     
     deleteDrink = deleteDrink => {
-    
-        let drink = this.state.savedDrinks.find(drink => 
+        let savedDrink = this.state.savedDrinks.find(drink => 
           drink.idDrink === deleteDrink.idDrink
         )
     
-        fetch(`http://localhost:3000/drinks/${drink.id}`, {
+        fetch(`http://localhost:3000/drinks/${savedDrink.id}`, {
             method: "DELETE"
         })
         .then(res => res.json())

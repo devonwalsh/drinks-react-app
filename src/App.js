@@ -17,10 +17,10 @@ class App extends Component {
         <Navigation className="Navigation" />
         <Container className="App">
           <Switch>
-            <Route exact path="/" component={Home}/>
-            <Route exact path="/browse" component={BrowsePage}/>
-            <Route exact path="/search" component={SearchPage}/>
-            <Route exact path="/my-drinks" component={MyDrinks}/>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/browse" component={BrowsePage} />
+            <Route exact path="/search" component={SearchPage} />
+            <Route exact path="/my-drinks" component={MyDrinks} />
           </Switch>
         </Container>
       </Router>
