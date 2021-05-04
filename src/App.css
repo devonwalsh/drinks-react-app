@@ -49,6 +49,11 @@
   width: 60%;
 }
 
+.drink-details.ui.container {
+  width: 60%;
+  float: center;
+}
+
 .featured {
   height: 400px;
 }
@@ -57,10 +62,18 @@
   height: 200px;
 }
 
+.details-card {
+  height: 300px;
+}
+
 .search-input.ui.input {
   margin-right: 5px;
 }
 
 .dropdown-menu {
   margin-bottom: 20px;
+}
+
+.drink-details {
+  height: 400px;
 }

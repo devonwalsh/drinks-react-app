@@ -45,7 +45,7 @@ class DrinkCard extends Component {
                 </Card.Content>
                 <Card.Content>
                 <Button 
-                    as={NavLink} exact to={`/${this.props.drinkData.idDrink}`}
+                    as={NavLink} exact to={`/drink/${this.props.drinkData.idDrink}`}
                     floated="left" 
                     color="green" 
                     basic>

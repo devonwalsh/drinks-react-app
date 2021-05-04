@@ -22,7 +22,7 @@ class App extends Component {
             <Route exact path="/browse" component={BrowsePage} />
             <Route exact path="/search" component={SearchPage} />
             <Route exact path="/my-drinks" component={MyDrinks} />
-            <Route exact path="/:drinkId" component={DrinkDetails} />
+            <Route exact path="/drink/:drinkId" component={DrinkDetails} />
           </Switch>
         </Container>
       </Router>
