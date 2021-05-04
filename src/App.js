@@ -7,6 +7,7 @@ import SearchPage from './containers/SearchPage';
 import MyDrinks from './containers/MyDrinks';
 import { Container } from 'semantic-ui-react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import DrinkDetails from './containers/DrinkDetails';
 
 class App extends Component {
 
@@ -21,6 +22,7 @@ class App extends Component {
             <Route exact path="/browse" component={BrowsePage} />
             <Route exact path="/search" component={SearchPage} />
             <Route exact path="/my-drinks" component={MyDrinks} />
+            <Route exact path="/:drinkId" component={DrinkDetails} />
           </Switch>
         </Container>
       </Router>

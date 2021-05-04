@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Button } from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom';
 
 class DrinkCard extends Component {
 
@@ -44,6 +45,7 @@ class DrinkCard extends Component {
                 </Card.Content>
                 <Card.Content>
                 <Button 
+                    as={NavLink} exact to={`/${this.props.drinkData.idDrink}`}
                     floated="left" 
                     color="green" 
                     basic>
