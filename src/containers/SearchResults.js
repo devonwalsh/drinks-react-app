@@ -12,9 +12,6 @@ const SearchResults = props => {
         return (
             <DrinkList 
                 drinks={props.drinks} 
-                savedDrinks={props.savedDrinks}
-                saveNewDrink={props.saveNewDrink}
-                deleteDrink={props.deleteDrink}
                 itemsPerRow={4}
                 className="drink-card"
             />

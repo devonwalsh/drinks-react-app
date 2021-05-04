@@ -25,9 +25,6 @@ class Home extends Component {
                 <h2>Featured Drink</h2>
                 <DrinkList 
                     drinks={Array.from(this.state.featuredDrink)}
-                    savedDrinks={this.props.savedDrinks}
-                    saveNewDrink={this.props.saveNewDrink}
-                    deleteDrink={this.props.deleteDrink}
                     itemsPerRow={1}
                     className="featured"
                 />

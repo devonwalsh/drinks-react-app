@@ -64,7 +64,6 @@ class BrowsePage extends Component {
 
     componentDidMount() {
         this.fetchCategories();
-        console.log("browse mounted")
     }
 
     render() {
@@ -77,9 +76,6 @@ class BrowsePage extends Component {
                 />
                 <DrinkList 
                     drinks={this.state.drinkResults}
-                    savedDrinks={this.props.savedDrinks}
-                    saveNewDrink={this.props.saveNewDrink}
-                    deleteDrink={this.props.deleteDrink}
                     itemsPerRow={4}
                     className="drink-card"
                 />

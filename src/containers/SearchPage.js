@@ -40,9 +40,6 @@ class SearchPage extends Component {
                 <h2>Search Results</h2>
                 <SearchResults 
                     drinks={this.state.drinkResults} 
-                    savedDrinks={this.props.savedDrinks}
-                    saveNewDrink={this.props.saveNewDrink}
-                    deleteDrink={this.props.deleteDrink}
                 />
             </Container>
         )

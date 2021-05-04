@@ -23,6 +23,12 @@ class DrinkCard extends Component {
         this.saveButtonHandler(this.props.savedDrinks, this.props.drinkData)
     }
 
+    componentDidUpdate(prevProps) {
+        if (prevProps.savedDrinks !== this.props.savedDrinks) {
+            this.saveButtonHandler(this.props.savedDrinks, this.props.drinkData)
+        }
+    }
+
     render() {
         return(
             <Card>
@@ -49,6 +55,7 @@ class DrinkCard extends Component {
                     onClick={() => {
                         if (this.state.drinkSaved) {
                             this.props.deleteDrink(this.props.drinkData)
+                            this.setState({drinkSaved: false})
                         }
                         else {
                             this.props.saveNewDrink({
@@ -56,6 +63,7 @@ class DrinkCard extends Component {
                             strDrink: this.props.drinkData.strDrink,
                             strDrinkThumb: this.props.drinkData.strDrinkThumb
                             })
+                            this.setState({drinkSaved: true})
                         }
                     }}>
                     {this.state.drinkSaved ? "Unsave" : "Save"}
